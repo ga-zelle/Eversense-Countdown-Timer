@@ -48,13 +48,19 @@ def mydialog(title,buttons=["OK"],items=[],multi=False,default_pick=[0,1]):
 #Settings for usage on Android:
 test_dir  = '/storage/emulated/0/Android/data/info.nightscout.androidaps/files/'
 test_file = 'AndroidAPS.log'
-inh = glob.glob(test_dir+'*')
+inh10     = glob.glob(test_dir+'*')             # for Android10 or less using AAPS 2.8.2
+test_dir  = '/storage/emulated/0/AAPS/logs/'
+inh11     = glob.glob(test_dir+'*')             # for Android11+ using AAPS 3.0+
 
-if len(inh) > 0:
+IsAndroid = False
+if      len(inh10) > 0:
     IsAndroid = True
+elif    len(inh10) > 0:
+    IsAndroid = True
+if  IsAndroid:
     import androidhelper
     droid = androidhelper.Android()
-    inh = glob.glob(test_dir+'files/AndroidAP*.log')
+    #inh = glob.glob(test_dir+'/AndroidAP*.log')
     fn = test_dir + test_file
     #fn = inh[0]
     ClearScreenCommand = 'clear'
@@ -86,8 +92,7 @@ if len(inh) > 0:
     #    Speaker = 'nobody'
     pass
 else:
-    IsAndroid = False
-    test_dir  = 'L:/Dev_Last10/'
+    test_dir  = 'L:/Dev_Last10/'                        # for development and early testing
     test_file = 'AndroidAPS._2021-12-11_00-00-00_.2'
     fn = test_dir + test_file
     ClearScreenCommand = 'cls'
