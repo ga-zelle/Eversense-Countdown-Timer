@@ -54,7 +54,7 @@ if len(inh10) > 0:
     IsAndroid = True
     fn = test_dir + test_file
 
-test_dir  = '/storage/emulated/0/AAPS/logs/'
+test_dir  = '/storage/emulated/0/AAPS/logs/info.nightscout.androidaps/'
 inh11     = glob.glob(test_dir+'*')             # for Android11+ using AAPS 3.0+
 if len(inh11) > 0:
     IsAndroid = True
