@@ -13,4 +13,4 @@ However, it could be different for you and also depends on how quickly you find 
 Limitations:
 - new logfile started and no loop executed since then : not fatal
 - last loop was at irregular time due to special event like target change or profile change: wrong synschronisation
-- Android 11+ : crashes; you may use an AAPS3.0dev version in other branch 
+- Android 11+ : crashes; if you have an AAPS3.0dev version you can use the script in the other branch 
